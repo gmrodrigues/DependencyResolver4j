@@ -5,8 +5,10 @@ Simple Dependency resolving algorithm
 
 ## Example
 
-"A" depends on "B" and "C"
-"B" depends on "D"
+* "A" depends on "B" and "C"
+* "B" depends on "D"
+
+In which order i must handle "A" "B" "C" and "D" so when i handle an item its dependencies are already handled?
 
 ```
         Resolver<String> resolver = new Resolver<String>();
