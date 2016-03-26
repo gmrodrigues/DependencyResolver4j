@@ -3,7 +3,7 @@ Simple Dependency resolving algorithm
 
 * based on [http://www.electricmonk.nl/log/2008/08/07/dependency-resolving-algorithm/]
 
-== Example ==
+## Example
 
 "A" depends on "B" and "C"
 "B" depends on "D"
