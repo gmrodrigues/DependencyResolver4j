@@ -1,0 +1,15 @@
+apply plugin: 'java'
+apply plugin: 'checkstyle'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.14'
+    testCompile 'junit:junit:4.12'
+
+    // google guava
+    compile 'com.google.guava:guava:19.0'
+}
