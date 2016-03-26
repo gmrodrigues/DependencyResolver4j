@@ -2,7 +2,6 @@ package com.gmrodrigues.dependencyresolver4j.test;
 
 import com.gmrodrigues.dependencyresolver4j.CircularReferenceException;
 import com.gmrodrigues.dependencyresolver4j.Resolver;
-import com.google.common.collect.ImmutableList;
 import org.junit.Test;
 
 import java.util.List;
