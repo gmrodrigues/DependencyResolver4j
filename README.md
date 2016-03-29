@@ -23,7 +23,7 @@ In which order i must handle "A" "B" "C" and "D" so when i handle an item its de
 ```
 
 ## At Maven Central
-Maven
+### Maven
 ```
 <dependency>
   <groupId>com.gmrodrigues</groupId>
@@ -32,7 +32,7 @@ Maven
 </dependency>
 ```
 
-Gradle
+### Gradle
 ```
 compile 'com.gmrodrigues:dependencyresolver4j:0.1'
 ```
