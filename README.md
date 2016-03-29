@@ -21,3 +21,18 @@ In which order i must handle "A" "B" "C" and "D" so when i handle an item its de
         System.out.println(result);
         # Ouput ["D", "B", "C", "A"]
 ```
+
+## At Maven Central
+Maven
+```
+<dependency>
+  <groupId>com.gmrodrigues</groupId>
+  <artifactId>dependencyresolver4j</artifactId>
+  <version>0.1</version>
+</dependency>
+```
+
+Gradle
+```
+compile 'com.gmrodrigues:dependencyresolver4j:0.1'
+```
