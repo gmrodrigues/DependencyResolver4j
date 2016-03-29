@@ -1,7 +1,29 @@
-version = '0.1'
-
 apply plugin: 'java'
 apply plugin: 'checkstyle'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+group = 'com.gmrodrigues'
+archivesBaseName = 'dependencyresolver4j'
+version = '0.1'
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
 
 repositories {
     jcenter()
@@ -14,4 +36,49 @@ dependencies {
 
     // google guava
     compile 'com.google.guava:guava:19.0'
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            pom.project {
+                name 'DependencyResolver4j'
+                packaging 'jar'
+                // optionally artifactId can be defined here
+                description 'Simple Dependency resolving algorithm  '
+                url 'https://github.com/gmrodrigues/DependencyResolver4j'
+
+                scm {
+                    connection 'scm:svn:http://foo.googlecode.com/svn/trunk/'
+                    developerConnection 'scm:svn:https://foo.googlecode.com/svn/trunk/'
+                    url 'http://foo.googlecode.com/svn/trunk/'
+                }
+
+                licenses {
+                    license {
+                        name 'The MIT License (MIT)'
+                        url 'https://raw.githubusercontent.com/gmrodrigues/DependencyResolver4j/master/LICENSE'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'glaubermrodrigues'
+                        name 'Glauber Machado Rodrigues'
+                        email 'glaubermrodrigues@gmail.com'
+                    }
+                }
+            }
+        }
+    }
 }
